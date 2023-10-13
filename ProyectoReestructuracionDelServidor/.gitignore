@@ -1,0 +1,11 @@
+# dependencias
+node_modules/
+
+# misc
+.env
+.env.development
+.env.production
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local

@@ -1,0 +1,197 @@
+[
+  {
+    "id": 1,
+    "title": "Aceite de Oliva",
+    "description": "Aceite de oliva extra virgen 500 ml",
+    "price": 750,
+    "status": true,
+    "thumbnail": "http://www.aceiteoliva.com",
+    "code": "AO500XV1",
+    "stock": 100,
+    "available": true
+  },
+  {
+    "id": 3,
+    "title": "Camisa de Algodón",
+    "description": "Camisa de algodón de manga corta",
+    "price": 450,
+    "status": true,
+    "thumbnail": "http://www.camisaalgodon.com",
+    "code": "CA450MC3",
+    "stock": 20,
+    "available": true
+  },
+  {
+    "id": 4,
+    "title": "Zapatos Deportivos",
+    "description": "Zapatos deportivos para correr",
+    "price": 850,
+    "status": true,
+    "thumbnail": "http://www.zapatosdeportivos.com",
+    "code": "ZD850CP4",
+    "stock": 30,
+    "available": true
+  },
+  {
+    "id": 5,
+    "title": "Teléfono Inteligente",
+    "description": "Teléfono inteligente de última generación",
+    "price": 1200,
+    "status": true,
+    "thumbnail": "http://www.telefonointeligente.com",
+    "code": "TI1200LG5",
+    "stock": 15,
+    "available": true
+  },
+  {
+    "id": 6,
+    "title": "Cafetera Automática",
+    "description": "Cafetera automática con molinillo integrado",
+    "price": 650,
+    "status": true,
+    "thumbnail": "http://www.cafeteraauto.com",
+    "code": "CA650MA6",
+    "stock": 25,
+    "available": true
+  },
+  {
+    "id": 7,
+    "title": "Libro de Ciencia Ficción",
+    "description": "Libro emocionante de ciencia ficción",
+    "price": 20,
+    "status": true,
+    "thumbnail": "http://www.librocf.com",
+    "code": "LCF20LJ7",
+    "stock": 50,
+    "available": true
+  },
+  {
+    "id": 8,
+    "title": "Pelota de Fútbol",
+    "description": "Pelota oficial de fútbol tamaño 5",
+    "price": 30,
+    "status": true,
+    "thumbnail": "http://www.pelotafutbol.com",
+    "code": "PF305OF8",
+    "stock": 10,
+    "available": true
+  },
+  {
+    "id": 9,
+    "title": "Lámpara de Escritorio",
+    "description": "Lámpara moderna de escritorio con ajuste de brillo",
+    "price": 120,
+    "status": true,
+    "thumbnail": "http://www.lamparaescritorio.com",
+    "code": "LE120AB9",
+    "stock": 35,
+    "available": true
+  },
+  {
+    "id": 10,
+    "title": "Set de Utensilios de Cocina",
+    "description": "Set completo de utensilios de cocina antiadherentes",
+    "price": 280,
+    "status": true,
+    "thumbnail": "http://www.setcocina.com",
+    "code": "SUC280AN10",
+    "stock": 5,
+    "available": true
+  },
+  {
+    "id": 11,
+    "title": "Laptop Ultradelgada",
+    "description": "Laptop ultradelgada y potente",
+    "price": 1100,
+    "status": true,
+    "thumbnail": "http://www.laptopultradelgada.com",
+    "code": "LU1100PD21",
+    "stock": 8,
+    "available": true
+  },
+  {
+    "id": 12,
+    "title": "Silla Ergonómica",
+    "description": "Silla de oficina ergonómica con soporte lumbar",
+    "price": 250,
+    "status": true,
+    "thumbnail": "http://www.sillaergonomica.com",
+    "code": "SE250SL22",
+    "stock": 15,
+    "available": true
+  },
+  {
+    "id": 13,
+    "title": "Lentes de Realidad Virtual",
+    "description": "Lentes de realidad virtual para una experiencia inmersiva",
+    "price": 300,
+    "status": true,
+    "thumbnail": "http://www.lentesvr.com",
+    "code": "LRV300EI23",
+    "stock": 3,
+    "available": true
+  },
+  {
+    "id": 14,
+    "title": "Bicicleta de Montaña",
+    "description": "Bicicleta de montaña resistente para terrenos difíciles",
+    "price": 600,
+    "status": true,
+    "thumbnail": "http://www.bicicletamontana.com",
+    "code": "BM600RD24",
+    "stock": 0,
+    "available": false
+  },
+  {
+    "id": 15,
+    "title": "Mochila Resistente al Agua",
+    "description": "Mochila espaciosa y resistente al agua",
+    "price": 80,
+    "status": true,
+    "thumbnail": "http://www.mochilaagua.com",
+    "code": "MRA80BA25",
+    "stock": 25,
+    "available": true
+  },
+  {
+    "id": 16,
+    "title": "Impresora Multifuncional",
+    "description": "Impresora multifuncional para el hogar u oficina",
+    "price": 150,
+    "status": true,
+    "thumbnail": "http://www.impresoramultifuncional.com",
+    "code": "IM150HO26",
+    "stock": 7,
+    "available": true
+  },
+  {
+    "id": 17,
+    "title": "prueba",
+    "description": "prueba",
+    "price": 450,
+    "status": true,
+    "thumbnail": "http://www.camisaalgodon.com",
+    "code": "prueba",
+    "stock": 20
+  },
+  {
+    "id": 1696793959960,
+    "title": "prueba1",
+    "description": "prueba",
+    "price": 450,
+    "status": true,
+    "thumbnail": "http://www.camisaalgodon.com",
+    "code": "prueba11",
+    "stock": 20
+  },
+  {
+    "id": 1696794010262,
+    "title": "prueba1",
+    "description": "prueba",
+    "price": 450,
+    "status": true,
+    "thumbnail": "http://www.camisaalgodon.com",
+    "code": "prueba22",
+    "stock": 20
+  }
+]
