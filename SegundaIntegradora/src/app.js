@@ -61,3 +61,6 @@ const connectMongoDB = async ()=>{
     }
 };
 connectMongoDB();
+
+
+console.log(connectMongoDB)
