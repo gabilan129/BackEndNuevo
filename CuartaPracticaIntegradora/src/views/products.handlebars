@@ -1,0 +1,162 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Inicio</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/products/createproduct">Crear Producto</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/chat">Chat</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/users/{{this.session.userID}}/documents">Subir Documentos</a>
+        </li>
+      </ul>
+      <div style="width: 10px;">
+
+      </div>
+    </div>
+    {{#if this.session.premium}}
+    <div style="padding:10px">
+      <a href="/users/premium/{{this.session.userID}}" class="btn btn-info">Cambiar a Estandar</a>
+    </div>
+    {{else}}
+    <div style="padding:10px">
+      <a href="/users/premium/{{this.session.userID}}" class="btn btn-success">Cambiar a Premium</a>
+    </div>
+    {{/if}}
+    <button id="botonTransparente" class="btn btn-transparent" onclick={findCarritoById('{{this.session.userID}}')}>
+      <div class="mr-3">
+        <i class="bi-cart" style="font-size: 2.5rem; color: white; margin-inline:10px;"><span style="font-size: 15px;">({{informacion.cartlength}})</span></i>
+      </div>
+    </button>
+    <a href="/sessions/current">
+      <div class="mr-3">
+        <i class="bi-person-circle" style="font-size: 2.5rem; color: white; margin-inline:10px;"></i>
+      </div>
+    </a>
+    <div style="width: 20px;"></div>
+    <a href="/auth/logout">
+      <div class="mr-3">
+        <i class="bi-box-arrow-left" style="font-size: 2.5rem; color: white; margin-inline:10px;"></i>
+      </div>
+    </a>
+</nav>
+
+
+<div class="text-center" style="padding-top: 5px;">
+  <div>
+    <div style="display: inline-block; margin:10px">
+      <h4> Bienvenido {{this.session.nombre}} {{this.session.apellido}}</h4>
+    </div>
+    {{!-- <div style="display: inline-block">
+      {{#if this.session.admin}}
+      <em>(ADMINISTRADOR)</em>
+      {{else}}
+      <em>(USUARIO)</em>
+      {{/if}}
+    </div> --}}
+  </div>
+  <div style="display: none;">
+    <div style="display: inline-block">
+      <p>Su ID es: </p>
+    </div>
+    <div style="display: inline-block">
+      <p id="userID">{{this.session.userID}}</p>
+    </div>
+  </div>
+</div>
+
+<div style="width: 60%; margin: 0 auto;" class="input-group mb-3">
+  <input id="idProducto" type="text" id="searchInput" class="form-control" placeholder="Ingrese producto a buscar"
+    aria-label="Buscar" aria-describedby="basic-addon2" onsubmit="return findProductByID()">
+  <div class="input-group-append" style="margin-inline: 10px;">
+    <button class="btn btn-primary" type="button" id="searchButton" onclick="return findProductByID()">Buscar</button>
+  </div>
+</div>
+
+<div class="text-center p-4">
+  <button class="btn btn-outline-success"
+    onclick={ordenarAscendente('{{this.informacion.limit}}','{{this.informacion.page}}')}>Precio ASCENDENTE</button>
+  <button class="btn btn-outline-success"
+    onclick={ordenarDescendente('{{this.informacion.limit}}','{{this.informacion.page}}')}>Precio DESCENDENTE</button>
+</div>
+
+
+
+<div>
+  <div class="container text-center" style="padding: 10px;">
+    <div class="row align-items-start">
+      {{#each informacion.payload}}
+      <div class="col" style="padding:10px">
+        <div class="card" style="width: 18rem;">
+          <img src="images/No_Image_Available.jpeg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h3 class="card-title">{{this.title}}</h3>
+            <p class="card-text">{{this.description}}</p>
+            <h2 class="card-title">${{this.price}}</h2>
+            <div>
+              <em style="color: green; font-weight: bold;" class="card-title">Disponibles: {{this.stock}}</em>
+            </div>
+            <div style="padding:10px">
+              <a class="btn btn-success" id={{this._id}} onclick={agregarProducto('{{this._id}}')}>Agregar Producto</a>
+            </div>
+           <div style="padding:10px">
+      <a href="/products/updateproduct/{{this._id}}" class="btn btn-info">Modificar Producto</a>
+    </div>
+            <div style="padding:10px">
+              <a class="btn btn-danger" id={{this._id}} onclick={deleteProduct('{{this._id}}')}>Eliminar Producto</a>
+            </div>
+            <div>
+              <em style="font-size: small;" class="card-title">Codigo: {{this.code}}</em>
+            </div>
+            <div>
+              <em style="font-size: small;" class="card-title">ID Producto: {{this._id}}</em>
+            </div>
+            <div>
+              <em style="font-size: small;" class="card-title">OWNER: {{this.owner}}</em>
+            </div>
+            {{#if this.isowner}}
+      <em style="color: red; font-weight: bold;">PRODUCTO CREADO POR MI</em>
+      {{/if}}
+          </div>
+        </div>
+      </div>
+
+      {{/each}}
+    </div>
+    <div>Pagina {{this.informacion.page}} de {{this.informacion.totalPages}}</div>
+    {{#if this.informacion.hasPrevPage}}
+    <button class="btn btn-outline-success"
+      onclick={cambiarPagina('{{this.informacion.limit}}','{{this.informacion.prevLink}}')}>Pagina anterior</button>
+    {{/if}}
+    {{#if this.informacion.hasNextPage}}
+    <button class="btn btn-outline-success"
+      onclick={cambiarPagina('{{this.informacion.limit}}','{{this.informacion.nextLink}}')}>Pagina siguiente</button>
+    {{/if}}
+
+  </div>
+
+</div>
+
+<div class="container text-center">
+  <div class="row align-items-start" id="caja">
+  </div>
+</div>
+
+<footer style="text-align: center; padding: 20px; background-color: #2B3036;">
+  <!-- Iconos de redes sociales -->
+  <a href="#" style="font-size: 24px; margin: 0 10px; color: white"><i class="bi-instagram"></i></a>
+  <a href="#" style="font-size: 24px; margin: 0 10px; color: white"><i class="bi-facebook"></i></a>
+  <a href="#" style="font-size: 24px; margin: 0 10px; color: white"><i class="bi-linkedin"></i></a>
+  <h3 style="color: white;">www.tiendalaurenti.com</h3>
+</footer>
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/products.js"></script>

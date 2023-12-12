@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Inicio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="text-center p-4">
+    {{#if @root.data }}
+    <div style="font-size: 25px; color:red">{{@root.data}}</div>
+    {{else}}
+   <div style="font-size: 25px; color:red">ALGO HA SALIDO MAL!</div>
+    {{/if}}
+</div>
+
+<footer style="text-align: center; padding: 20px; background-color: #2B3036;">
+    <!-- Iconos de redes sociales -->
+    <a href="#" style="font-size: 24px; margin: 0 10px; color: white"><i class="bi-instagram"></i></a>
+    <a href="#" style="font-size: 24px; margin: 0 10px; color: white"><i class="bi-facebook"></i></a>
+    <a href="#" style="font-size: 24px; margin: 0 10px; color: white"><i class="bi-linkedin"></i></a>
+    <h3 style="color: white;">www.tiendalaurenti.com</h3>
+</footer>

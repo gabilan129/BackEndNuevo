@@ -1,0 +1,176 @@
+#  DOCUMENTACION PRODUCTS
+paths:
+  /products/:
+    post:
+      summary: Crear producto
+      tags:
+        - Products
+      requestBody:
+        required: true
+        content:
+          aplication/json:
+            schema:
+              $ref: '#components/requestBodies/createProducts'
+      responses:
+        "200":
+          description: La operacion fue exitosa
+          content:
+            aplication/json:
+              schema:
+                type: array
+                items: 
+                  $ref: '#components/schemas/Products'
+        "500":
+          description: Error inesperado en el servidor
+  /products/{pid}:
+    delete:
+      summary: Elimina un producto
+      tags:
+        - Products
+      parameters:
+        - name: pid
+          in: path
+          required: true
+          description: Id del producto que se desea eliminar
+          schema:
+           $type: String
+      responses:
+        "200":
+          description: La operacion fue exitosa
+          content:
+            aplication/json:
+              schema:
+                type: array
+                items: 
+                  $ref: '#components/schemas/Products'
+        "500":
+          description: Error inesperado en el servidor. No se pudo manejar el proceso
+    put:
+      summary: Actualiza un producto
+      tags:
+        - Products
+      parameters:
+        - name: pid
+          in: path
+          required: true
+          description: Id del producto que se desea actualizar
+          schema:
+           $type: String
+      requestBody:
+        required: true
+        content:
+          aplication/json:
+            schema:
+              $ref: '#components/requestBodies/updateProducts'
+      responses:
+        "200":
+          description: La operacion fue exitosa
+          content:
+            aplication/json:
+              schema:
+                type: array
+                items: 
+                  $ref: '#components/schemas/Products'
+        "500":
+          description: Error inesperado en el servidor
+
+components:
+  schemas:
+    Products:
+      type: object
+      properties:
+        _id:
+          type: ObjetctId
+          description: Id autogenerado por MongoDB
+        title:
+          type: String
+          description: Nombre del producto
+        description:
+          type: String
+          description: Descripcion del producto
+        price:
+          type: Number
+          description: Precio del producto
+        status:
+          type: Boolean
+          description: Status del producto
+        stock:
+          type: Number
+          description: Stock del producto
+        cateogry:
+          type: String
+          description: Categoria del producto
+        thumbnail:
+          type: Array
+          description: Array de imagenes del producto
+        owner: 
+          type: ObjetctId
+          description: Creador del producto
+      example:
+        _id: ObjetctId("jlaskdja1239asdn1")
+        title: Macbook Pro
+        description: Apple MacBook PRO M1 - 512SSD - 16GB RAM
+        price: 1250
+        status: true
+        stock: 10
+        category: Electronica
+        thumbnail: []
+        owner: ObjetctId("asdklj123ksjl1l")
+  requestBodies:
+    createProducts:
+      type: object
+      properties:
+        _id:
+          type: ObjetctId
+          description: Id autogenerado por MongoDB
+        title:
+          type: String
+          description: Nombre del producto
+        description:
+          type: String
+          description: Descripcion del producto
+        price:
+          type: Number
+          description: Precio del producto
+        stock:
+          type: Number
+          description: Stock del producto
+        cateogry:
+          type: String
+          description: Categoria del producto
+      example:
+        _id: ObjetctId("jlaskdja1239asdn1")
+        title: Macbook Pro
+        description: Apple MacBook PRO M1 - 512SSD - 16GB RAM
+        price: 1250
+        stock: 10
+        category: Electronica
+    updateProducts:
+        type: object
+        properties:
+          _id:
+            type: ObjetctId
+            description: Id autogenerado por MongoDB
+          title:
+            type: String
+            description: Nombre del producto
+          description:
+            type: String
+            description: Descripcion del producto
+          price:
+            type: Number
+            description: Precio del producto
+          stock:
+            type: Number
+            description: Stock del producto
+          cateogry:
+            type: String
+            description: Categoria del producto
+        example:
+          _id: ObjetctId("jlaskdja1239asdn1")
+          title: Macbook Pro
+          description: Apple MacBook PRO M1 - 512SSD - 16GB RAM
+          price: 1250
+          stock: 10
+          category: Electronica
+      

@@ -1,0 +1,102 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark"
+    style="position: fixed; top: 0; left: 0; width: 100%; background-color: #333; z-index: 1000;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Inicio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/products/createproduct">Crear Producto</a>
+                </li>
+                {{!-- <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/products/updateproduct">Modificar Producto</a>
+                </li> --}}
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/chat">Chat</a>
+                </li>
+            </ul>
+        </div>
+        <button class="btn btn-success" data-toggle="modal" data-target="#miPopup">COMPRAR</button>
+    </div>
+</nav>
+
+
+<div class="modal fade" id="miPopup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirmación de compra</h5>
+            </div>
+            <div class="modal-body">
+                ¿Estás seguro de que deseas confirmar la compra?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                <a href="/carts/{{@root.carrito._id}}/purchase" class="btn btn-success">Aceptar</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container text-center" style="margin-top: 50px; padding: 10px">
+    <div class="row align-items-start" id="cajaCarrito">
+
+        {{#each carrito.productos}}
+
+        <div class="col-12" style="padding:10px">
+            <div class="card" style="width: 100%;">
+                <div class="card-body">
+                    <h3 class="card-title">{{this.pid.title}}</h3>
+                    <p class="card-title">ID de producto: {{this.pid._id}}</p>
+                    <h6 class="card-title">Cantidad: {{this.cantidad}}</h6>
+                    <button class="btn btn-outline-danger"
+                        onclick={eliminarProducto('{{@root.carrito._id}}','{{this.pid._id}}','{{@root.carrito.usuario}}')}>Eliminar
+                        Producto</button>
+                </div>
+                <div style="padding-left: 300px; padding-right:300px; padding-bottom:10px" class="text-center">
+                    <form class="d-flex" role="search">
+                        <input id="cantidad{{this.pid._id}}" class="form-control me-2" type="search"
+                            placeholder="Nueva Cantidad" aria-label="Search">
+                    </form>
+                    <div style="padding: 10px;">
+                        <button class="btn btn-outline-success"
+                            onclick={actualizarCantidad('{{@root.carrito._id}}','{{this.pid._id}}','{{@root.carrito.usuario}}')}>Actualizar
+                            Cantidad</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+        {{/each}}
+
+    </div>
+    {{#if isEmpty}}
+    <div class="text-center p-4">
+        <h4>Su carrito esta vacio</h4>
+    </div>
+    {{else}}
+    <div class="text-center p-4">
+        <button class="btn btn-danger" onclick={eliminarProductosCarrito('{{@root.carrito._id}}')}>Eliminar
+            TODOS los productos</button>
+    </div>
+    {{/if}}
+</div>
+
+<footer style="text-align: center; padding: 20px; background-color: #2B3036;">
+    <!-- Iconos de redes sociales -->
+    <a href="#" style="font-size: 24px; margin: 0 10px; color: white"><i class="bi-instagram"></i></a>
+    <a href="#" style="font-size: 24px; margin: 0 10px; color: white"><i class="bi-facebook"></i></a>
+    <a href="#" style="font-size: 24px; margin: 0 10px; color: white"><i class="bi-linkedin"></i></a>
+    <h3 style="color: white;">www.tiendalaurenti.com</h3>
+</footer>
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/carts.js"></script>

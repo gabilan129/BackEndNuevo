@@ -1,0 +1,73 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Inicio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/products/createproduct">Crear Producto</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/chat">Chat</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="text-center">
+<nav class="navbar bg-body-tertiary" style="width:100vw;">
+    <div class="container-fluid">
+        <form action="/users/{{@root.data.uid}}/documents" method="post" enctype="multipart/form-data">
+            <h2 style="font-family:sans-serif; padding:10px;">Carga de nuevos productos</h2>
+            <div class="mb-3">
+                <label for="imagenperfil" class="form-label">Imagen de Perfil</label>
+                <input type="file" class="form-control" name="imagenperfil" id="imagenperfil">
+                {{#if @root.data.imagenperfilencontrada}}
+                <label for="imagenperfil" class="form-label" style="color: green; font-weight: bold;">Se han encontrado imagenes de perfil ya cargadas</label>
+                {{/if}}
+            </div>
+            <div class="mb-3">
+                <label for="imagenproducto" class="form-label">Imagen de producto</label>
+                <input type="file" class="form-control" name="imagenproducto" id="imagenproducto">
+                {{#if @root.data.imagenproductoencontrada}}
+                <label for="imagenperfil" class="form-label" style="color: green; font-weight: bold;">Se han encontrado imagenes de productos ya cargadas</label>
+                {{/if}}
+            </div>
+            <div class="mb-3">
+                <label for="identificacion" class="form-label">Identificacion</label>
+                <input type="file" class="form-control" name="identificacion" id="identificacion">
+                {{#if @root.data.identificacionencontrada}}
+                <label for="imagenperfil" class="form-label" style="color: green; font-weight: bold;">Se han encontrado documentos de identificacion ya cargados</label>
+                {{/if}}
+            </div>
+            <div class="mb-3">
+                <label for="domicilio" class="form-label">Comprobante de domicilio</label>
+                <input type="file" class="form-control" name="domicilio" id="domicilio">
+                {{#if @root.data.domicilioencontrado}}
+                <label for="imagenperfil" class="form-label" style="color: green; font-weight: bold;">Se han encontrado documentos de domicilio ya cargados</label>
+                {{/if}}
+            </div>
+            <div class="mb-3">
+                <label for="estadocuenta" class="form-label">Comprobante de estado de cuenta</label>
+                <input type="file" class="form-control" name="estadocuenta" id="estadocuenta">
+                {{#if @root.data.estadocuentaencontrado}}
+                <label for="imagenperfil" class="form-label" style="color: green; font-weight: bold;">Se han encontrado documentos de estados de cuenta ya cargadas</label>
+                {{/if}}
+            </div>
+            <button type="submit" class="btn btn-primary">Cargar Documentos</button>
+        </form>
+    </div>
+</nav>
+</div>
+
+
+<footer style="text-align: center; padding: 20px; background-color: #2B3036;">
+    <!-- Iconos de redes sociales -->
+    <a href="#" style="font-size: 24px; margin: 0 10px; color: white"><i class="bi-instagram"></i></a>
+    <a href="#" style="font-size: 24px; margin: 0 10px; color: white"><i class="bi-facebook"></i></a>
+    <a href="#" style="font-size: 24px; margin: 0 10px; color: white"><i class="bi-linkedin"></i></a>
+    <h3 style="color: white;">www.tiendalaurenti.com</h3>
+</footer>

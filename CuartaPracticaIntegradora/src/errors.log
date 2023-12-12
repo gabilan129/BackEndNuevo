@@ -1,0 +1,12 @@
+fatal: Probando Fatal
+error: Probando error
+fatal: Probando Fatal
+error: Probando error
+fatal: Probando Fatal
+error: Probando error
+error: El usuario no tiene los permisos para esta operacion!
+error: El usuario no es autenticado!
+error: El usuario no tiene los permisos para esta operacion!
+error: Error al crear producto Product create error: Error al crear producto, una o varias propiedades estan vacias.
+error: Error al actualizar producto: CastError: Cast to ObjectId failed for value "asd" (type string) at path "_id" for model "products"
+error: El usuario ya existe
